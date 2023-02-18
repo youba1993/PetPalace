@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: petpalace_production
-  username: petpalace
-  password: <%= ENV["PETPALACE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
