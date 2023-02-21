@@ -1,24 +1,32 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ProductListPage from './pages/ProductListPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
-
   return (
-    <BrowserRouter>
-      <div className=" bg-green text-3xl font-bold underline">
-        <Routes>
-          <Route path="/testing" element={<h1>Test Route</h1>} />
-          <Route path="/" element={<h1>Page Count: {count}</h1>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className="flex flex-col min-h-screen">
+      <Router>
+        <Header />
+
+        <main className="container flex-1 mx-auto px-4">
+          <Routes>
+            <Route exact path="/" element={<HomePage />}/>
+            <Route exact path="/products" element={<ProductListPage />}/>
+            <Route path="/products/:id" element={<ProductDetailPage />}/>
+            <Route path="/cart" element={<CartPage />}/>           
+            <Route path="/checkout" element={<CheckoutPage />}/>
+          </Routes>
+        </main>
+
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
