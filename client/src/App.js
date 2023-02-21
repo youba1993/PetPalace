@@ -12,7 +12,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className=" bg-green text-3xl font-bold underline">
         <Routes>
           <Route path="/testing" element={<h1>Test Route</h1>} />
           <Route path="/" element={<h1>Page Count: {count}</h1>} />
