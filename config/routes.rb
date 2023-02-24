@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :customers
+  devise_for :customers
   resources :orders
   resources :line_items
   resources :products
@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-  # route to test Cookies configuration
-  get '/hello', to: 'application#hello_world'
 
   get '*path',
       to: 'fallback#index',
