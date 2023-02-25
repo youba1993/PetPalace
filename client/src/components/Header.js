@@ -18,6 +18,9 @@ function Header() {
               <Link to="/login">Sign In</Link>
             </li>
             <li>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+            <li>
               <Link to="/cart">Cart</Link>
             </li>
           </ul>
