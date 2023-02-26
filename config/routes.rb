@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :customers
-  resources :orders
-  resources :line_items
+  # resources :orders
+  #  resources :line_items
   resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

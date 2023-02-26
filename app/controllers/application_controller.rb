@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
+    include ActionController::MimeResponds
+    
+    before_action :configure_permitted_parameters, if: :devise_controller?
+    respond_to :json
 
-    def hello_world
-        session[:count] = (session[:count] || 0) + 1
-        render json: { count: session[:count] }
+      protected
+    
+      def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address ])
       end
 end
